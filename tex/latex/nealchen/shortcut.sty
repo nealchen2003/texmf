@@ -10,11 +10,8 @@
 \ProcessKeysOptions{shortcut/option}
 
 \RequirePackage[linesnumbered, boxed, ruled, vlined]{algorithm2e}
-\RequirePackage{amsfonts, amsmath, amssymb, bm, braket, fullpage, graphicx, hyperref, proof, url, theorem, tikz, xcolor}
-\hypersetup {
-	colorlinks=true,
-	linkcolor=blue
-}
+\RequirePackage[colorlinks, allcolors=blue]{hyperref}
+\RequirePackage{amsfonts, amsmath, amssymb, bm, braket, fullpage, graphicx, proof, url, theorem, tikz, xcolor}
 
 \str_if_eq:VnT \g__shortcut_lang_tl {chs} {
 	\newtheorem{lemma}{引理}
