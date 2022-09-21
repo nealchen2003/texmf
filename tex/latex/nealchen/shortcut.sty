@@ -1,0 +1,98 @@
+% Version: 1.0.0
+\ProvidesPackage{shortcut}[2022/09/20 Shortcuts for frequently used notions]
+\RequirePackage{expl3, xparse, l3keys2e}
+
+\ExplSyntaxOn
+
+\keys_define:nn {shortcut/option} {
+	lang .tl_gset:N = \g__shortcut_lang_tl
+}
+\ProcessKeysOptions{shortcut/option}
+
+\RequirePackage[linesnumbered, boxed, ruled, vlined]{algorithm2e}
+\RequirePackage{amsfonts, amsmath, amssymb, bm, braket, fullpage, graphicx, hyperref, proof, url, theorem, tikz, xcolor}
+\hypersetup {
+	colorlinks=true,
+	linkcolor=blue
+}
+
+\str_if_eq:VnT \g__shortcut_lang_tl {chs} {
+	\newtheorem{lemma}{引理}
+	\newtheorem{theorem}[lemma]{定理}
+	\newtheorem{definition}[lemma]{定义}
+	\newtheorem{assumption}[lemma]{假设}
+	\newtheorem{corollary}[lemma]{推论}
+	\newtheorem{proposition}[lemma]{性质}
+	\newtheorem{exercise}{练习}
+	\newtheorem{remark}[lemma]{注}
+	\newtheorem{prob}{问题}
+	\newtheorem{conjecture}{猜想}
+	\newtheorem{example}{例}
+
+	\newenvironment{proof}{\vspace{-0.05in}\noindent{\bf 证明：}}%
+			{\hspace*{\fill}$\Box$\par}
+	\newenvironment{proofof}[1]{\smallskip\noindent{\bf #1的证明：}}%
+			{\hspace*{\fill}$\Box$\par}
+	\newenvironment{answer}{\vspace{-0.05in}\noindent{\bf 解：}}%
+			{\par}
+	\newenvironment{answerto}[1]{\smallskip\noindent{\bf #1解：}}%
+			{\par}
+	\newenvironment{note}[1]{\medskip\noindent \textbf{#1：}}%
+	{\medskip}
+}
+
+\str_if_eq:VnT \g__shortcut_lang_tl {en} {
+	\newtheorem{fact}{Fact}
+	\newtheorem{lemma}{Lemma}
+	\newtheorem{theorem}[lemma]{Theorem}
+	\newtheorem{definition}[lemma]{Definition}
+	\newtheorem{assumption}[lemma]{Assumption}
+	\newtheorem{corollary}[lemma]{Corollary}
+	\newtheorem{proposition}[lemma]{Proposition}
+	\newtheorem{exercise}[lemma]{Exercise}
+	\newtheorem{claim}[lemma]{Claim}
+	\newtheorem{remark}[lemma]{Remark}
+	\newtheorem{prob}{Problem}
+	\newtheorem{conjecture}{Conjecture}
+	\newtheorem{example}{Example}
+	
+	\newenvironment{proof}{\vspace{-0.05in}\noindent{\bf Proof:}}%
+			{\hspace*{\fill}$\Box$\par}
+	\newenvironment{proofsketch}{\noindent{\bf Proof\ Sketch.}}%
+			{\hspace*{\fill}$\Box$\par\vspace{4mm}}
+	\newenvironment{proofof}[1]{\smallskip\noindent{\bf Proof\ of\ #1.}}%
+			{\hspace*{\fill}$\Box$\par}
+	\newenvironment{answer}{\vspace{-0.05in}\noindent{\bf Answer:}}%
+			{\par}
+	\newenvironment{answerto}[1]{\smallskip\noindent{\bf Answer\ to\ #1.}}%
+			{\par}
+	\newenvironment{note}[1]{\medskip\noindent \textbf{#1:}}%
+	{\medskip}
+
+}
+
+% \newcommand{\eps}{\epsilon}
+% \newcommand{\script}[1]{\mathcal{#1}}
+
+\newcommand{\assign}{\leftarrow}
+
+\newcommand{\etal}{{\em et\ al.}\ }
+\newcommand{\opt}{\textrm{\sc OPT}}
+\newcommand{\e}{\mathrm{e}}
+
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+
+\newcommand{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\der}[2][]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\pder}[2][]{\frac{\partial #1}{\partial #2}}
+\newcommand{\jacobian}[2]{\frac{D #1}{D #2}}
+\newcommand{\diver}{\nabla\cdot}
+\newcommand{\curl}{\nabla\times}
+
+\DeclareSymbolFont{ugmL}{OMX}{mdugm}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{ugmL}{"F3}
+
+\ExplSyntaxOff
