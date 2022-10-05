@@ -1,6 +1,6 @@
-% Version: 2.2.3
+% Version: 2.4.0
 \ProvidesClass{homework}[2022/09/21 Class file for homework assignments]
-\RequirePackage{expl3, xparse, l3keys2e}
+\RequirePackage{expl3, xparse, l3keys2e, ifthen}
 
 \ExplSyntaxOn
 
@@ -27,15 +27,31 @@
 }
 
 \RequirePackageWithOptions{shortcut}
+\RequirePackage{fancyhdr, fullpage}
+
+\pagestyle{empty}
+\pagestyle{fancy}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\topmargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.5in}
 
 \AtBeginDocument {
-	\pagestyle{empty}
-	\bibliographystyle{plain}
-	\setlength{\oddsidemargin}{0in}
-	\setlength{\evensidemargin}{0in}
-	\setlength{\topmargin}{0in}
-	\setlength{\textwidth}{6.5in}
-	\setlength{\textheight}{8.5in}
+    % Setup header
+    \setlength{\headheight}{15.2pt}
+    \setlength{\headsep}{0.2in}
+    \lhead{\hwclass}%
+    \chead{\hwname\ (\hwemail)}%
+    \rhead{\hwtype\ \hwnum}%
+
+    % Setup hrule in header
+    \renewcommand{\headrulewidth}{0pt}
+    \headrule{}
+
+    % Don't put header on first page
+    \thispagestyle{plain}
+
 	\begin{center}
     	{\Large\hwclass\ \hwtype\ \hwnum}
 		\par
@@ -43,6 +59,9 @@
 		\par
 		\today
     \end{center}
+    \renewcommand{\headrulewidth}{0.4pt}
+
+	\bibliographystyle{plain}
 }
 
 \ExplSyntaxOff

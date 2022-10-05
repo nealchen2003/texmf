@@ -1,5 +1,5 @@
-% Version: 1.0.0
-\ProvidesPackage{shortcut}[2022/09/20 Shortcuts for frequently used notions]
+% Version: 1.0.2
+\ProvidesPackage{shortcut}[2022/09/25 Shortcuts for frequently used notions]
 \RequirePackage{expl3, xparse, l3keys2e}
 
 \ExplSyntaxOn
@@ -11,7 +11,7 @@
 
 \RequirePackage[linesnumbered, boxed, ruled, vlined]{algorithm2e}
 \RequirePackage[colorlinks, allcolors=blue]{hyperref}
-\RequirePackage{amsfonts, amsmath, amssymb, bm, braket, fullpage, graphicx, proof, url, theorem, tikz, xcolor}
+\RequirePackage{amsfonts, amsmath, amssymb, bm, braket, enumerate, graphicx, proof, url, theorem, tikz, xcolor}
 
 \str_if_eq:VnT \g__shortcut_lang_tl {chs} {
 	\newtheorem{lemma}{引理}
@@ -68,8 +68,7 @@
 
 }
 
-% \newcommand{\eps}{\epsilon}
-% \newcommand{\script}[1]{\mathcal{#1}}
+\newcommand{\sgn}{\operatorname{sgn}}
 
 \newcommand{\assign}{\leftarrow}
 
