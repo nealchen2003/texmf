@@ -1,5 +1,5 @@
-% Version: 1.0.5
-\ProvidesPackage{shortcut}[2022/10/07 Shortcuts for frequently used notions]
+% Version: 1.0.6
+\ProvidesPackage{shortcut}[Shortcuts for frequently used notions]
 \RequirePackage{expl3, xparse, l3keys2e}
 
 \ExplSyntaxOn
@@ -70,13 +70,16 @@
 
 \newcommand{\unit}[1]{\hat{\bm{#1}}}
 
-\newcommand{\sgn}{\operatorname{sgn}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\mean}{E}
+\DeclareMathOperator{\var}{Var}
 
 \newcommand{\assign}{\leftarrow}
 
 \newcommand{\etal}{{\em et\ al.}\ }
-\newcommand{\opt}{\textrm{\sc OPT}}
+\newcommand{\opt}{\mathsf{OPT}}
 \newcommand{\e}{\mathrm{e}}
+\newcommand{\some}[1]{\exists #1,\;\text{s.t.}\;}
 
 \newcommand{\trans}{^\mathrm{T}}
 \newcommand{\compl}{^\mathrm{c}}
