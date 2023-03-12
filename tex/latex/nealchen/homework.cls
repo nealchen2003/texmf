@@ -115,6 +115,13 @@
 
 \newcommand{\questionpart}[0]{\stepcounter{partCounter}\item}
 
-\renewenvironment{answer}{\noindent{\bf Answer:}}{\par}
+\str_if_eq:onT {\g__homework_lang_tl} {chs} {
+	\renewenvironment{answer}{\noindent{\bf 解：}}{\par}
+	\renewenvironment{proof}{\noindent{\bf 证明：}}{\par}
+}
+\str_if_eq:onT {\g__homework_lang_tl} {en} {
+	\renewenvironment{answer}{\noindent{\bf Answer:}}{\par}
+	\renewenvironment{proof}{\noindent{\bf Proof:}}{\par}
+}
 
 \ExplSyntaxOff
