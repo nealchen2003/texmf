@@ -1,5 +1,5 @@
-% Version: 1.0.7
-\ProvidesPackage{shortcut}[Shortcuts for frequently used notions]
+% Version: 1.1.0
+\ProvidesPackage{shortcut}[2023/03/12 Shortcuts for frequently used notions]
 \RequirePackage{expl3, xparse, l3keys2e}
 
 \ExplSyntaxOn
@@ -99,5 +99,15 @@
 
 \DeclareSymbolFont{ugmL}{OMX}{mdugm}{m}{n}
 \DeclareMathAccent{\wideparen}{\mathord}{ugmL}{"F3}
+
+% ----- Induction Environment -------------------------------------------------
+
+\newenvironment{induction}[0]{%
+  \begin{description}
+}{\end{description}}
+
+\newcommand{\basecase}{\item[Base Case]\mbox{}\\}
+\newcommand{\indhyp}{\item[Induction Hypothesis]\mbox{}\\}
+\newcommand{\indstep}{\item[Induction Step]\mbox{}\\}
 
 \ExplSyntaxOff
