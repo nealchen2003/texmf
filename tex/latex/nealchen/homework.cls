@@ -30,6 +30,7 @@
 \RequirePackage[lang=\g__homework_lang_tl]{shortcut}
 \RequirePackage{fancyhdr}
 \RequirePackage{fullpage}
+\RequirePackage{enumitem}
 
 \pagestyle{fancy}
 \setlength{\oddsidemargin}{0in}
